@@ -92,7 +92,7 @@ public final class ModelRepositoryInterface {
 			final
 			PMethod pMethod = new PMethod();
 			pMethod.addParameterArgument(new PParameterArgument(columnNameCamelCaseModified, hasDataType ? PType.valueOf(columnDataType) : null));
-			pMethod.setEnclosedByInterface(true);
+			pMethod.setEnclosedByInterface();
 			pMethod.setName("getBy" + columnNameCamelCase);
 			pMethod.setReturnType(hasPrimaryKey || hasUniqueKey ? new PReturnType(PType.valueOf(modelNameCamelCase + "Interface"), true) : new PReturnType(PType.ARRAY));
 			

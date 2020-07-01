@@ -89,7 +89,7 @@ public final class Model {
 		final
 		PMethod pMethodConstruct = new PMethod();
 		pMethodConstruct.getBlock().addLinef("$this->_init('%s_%s_%s', '%s');", vendorNameUnseparatedLowerCase, moduleNameUnseparatedLowerCase, modelName, columnPrimaryKey.getName());
-		pMethodConstruct.setEnclosedByClass(true);
+		pMethodConstruct.setEnclosedByClass();
 		pMethodConstruct.setName("_construct");
 		pMethodConstruct.setProtected(true);
 		
@@ -108,7 +108,7 @@ public final class Model {
 		pMethodGetIds.getBlock().addLine("}");
 		pMethodGetIds.getBlock().addLine("");
 		pMethodGetIds.getBlock().addLine("return $ids;");
-		pMethodGetIds.setEnclosedByClass(true);
+		pMethodGetIds.setEnclosedByClass();
 		pMethodGetIds.setName(String.format("get%ss", columnPrimaryKeyNameCamelCase));
 		pMethodGetIds.setPublic(true);
 		pMethodGetIds.setReturnType(new PReturnType(PType.ARRAY));
@@ -150,7 +150,7 @@ public final class Model {
 			pMethodGetXsByY.getBlock().addLine("}");
 			pMethodGetXsByY.getBlock().addLine("");
 			pMethodGetXsByY.getBlock().addLinef("return $%ss;", columnPrimaryKeyNameCamelCaseModified);
-			pMethodGetXsByY.setEnclosedByClass(true);
+			pMethodGetXsByY.setEnclosedByClass();
 			pMethodGetXsByY.setName(String.format("get%ssBy%s", columnPrimaryKeyNameCamelCase, columnNameCamelCase));
 			pMethodGetXsByY.setPublic(true);
 			pMethodGetXsByY.setReturnType(new PReturnType(PType.ARRAY));

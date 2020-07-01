@@ -188,7 +188,7 @@ public final class ModelRepository {
 				pMethodGetByX.getBlock().addLinef("return $%ss;", modelNameCamelCaseModified);
 			}
 			
-			pMethodGetByX.setEnclosedByClass(true);
+			pMethodGetByX.setEnclosedByClass();
 			pMethodGetByX.setName("getBy" + columnNameCamelCase);
 			pMethodGetByX.setPublic(true);
 			pMethodGetByX.setReturnType(hasPrimaryKey || hasUniqueKey ? new PReturnType(PType.valueOf(modelNameCamelCase + "Interface"), true) : new PReturnType(PType.ARRAY));

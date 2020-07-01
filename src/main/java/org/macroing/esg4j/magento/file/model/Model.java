@@ -88,7 +88,7 @@ public final class Model {
 		final
 		PMethod pMethodGetIdentities = new PMethod();
 		pMethodGetIdentities.getBlock().addLine("return [self::CACHE_TAG.'_'.$this->getId()];");
-		pMethodGetIdentities.setEnclosedByClass(true);
+		pMethodGetIdentities.setEnclosedByClass();
 		pMethodGetIdentities.setName("getIdentities");
 		pMethodGetIdentities.setPublic(true);
 		
@@ -144,7 +144,7 @@ public final class Model {
 			pMethodDoConvertToType.addParameterArgument(new PParameterArgument("value"));
 			pMethodDoConvertToType.addParameterArgument(new PParameterArgument(String.format("default%s", typeCamelCase), PType.valueOf(type), PValue.valueOf(PType.valueOf(type))));
 			pMethodDoConvertToType.getBlock().addLine(String.format("return is_%s($value) ? $value : (is_null($value) ? $default%s : %sval($value));", type, typeCamelCase, type.equals("string") ? "str" : type));
-			pMethodDoConvertToType.setEnclosedByClass(true);
+			pMethodDoConvertToType.setEnclosedByClass();
 			pMethodDoConvertToType.setFinal(true);
 			pMethodDoConvertToType.setName(String.format("doConvertTo%s", typeCamelCase));
 			pMethodDoConvertToType.setPrivate(true);
